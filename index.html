@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Authentication </title>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <form class="Sign-up-Form" onsubmit="return Account_login()" target="_blank" action="Home.html" method="get" >
+        <!-- <fieldset class="placeholder"> -->
+            <legend class="Form-Page-Tile">
+                <label class="Signup" id="signup" onclick="signup_color()">
+                    <p> SIGN UP </p>
+                </label>
+                <label class="login" id="login-color" onclick="login_color()">
+                    <p> LOGIN </p>
+                </label>
+                <div class="selector" id="selected"></div>
+                <div class="selecter" id="selecter"></div>
+                <div class="password-check">
+                    <div id="character" style="color: red;">Password must be 8 characters long</div>
+                    <div id="uppercase" style="color: red;">Password must include an uppercase letter</div>
+                    <div id="lowercase" style="color: red;">Password must include a lowercase letter</div>
+                    <div id="digit" style="color: red;">Password must contain at least one digit</div>
+                    <div id="Passwordc" style="color: red;" >Password and Confirm Password matched</div>
+                    <div class="specialc" id="specialc" style="color: red;" >Password must contain one special character</div>
+                </div>
+            </legend>
+    
+            <div class="input-field">
+                <div class="news" id="News"></div>
+                <lable for="uname">
+                    <input class="username" placeholder=" Username " id="uname"  onkeyup="validateusername()">
+                </lable>
+                <div class="userwarning" id="userwarning"></div>
+                <label for="email">
+                    <input class="Data" placeholder=" Email " id="email" onkeyup="validateEmail()">
+                </label>
+                <div class="warning-text" id="warning" > </div>
+                <label for="password">
+                    <input class="password" type="password" placeholder=" Password " id="password" onkeyup="validateConfirmPassword(), validatePassword()">
+                </label>
+                <div class="warning" id="warningp" > </div>
+                <label for="Confirm">
+                    <input class="confirmpassword" type="password" id="Confirm" placeholder=" Confirm Password " onkeyup="validateConfirmPassword()">
+                </label>
+                <div class="confirm-warning" id="confirm-warning" ></div>
+                <span class="password-toggle-icon">
+                    <i class="fas fa-eye-slash" id="visibility" onclick="visible()"></i>
+                </span>
+                <span class="cpassword-toggle-icon">
+                    <i class="fas fa-eye-slash" id="visible" onclick="vision()"></i>
+                </span>
+                <span class="Forgetpassword-toggle-icon">
+                    <i class="fas fa-eye-slash" id="Forgetvisible" onclick="FogetVision()" style="display: none;"></i>
+                </span>
+                <span class="Cforgetpassword-toggle-icon">
+                    <i class="fas fa-eye-slash" id="Cforgetvisible" onclick="ConfirmFogetVision()" style="display: none;"></i>
+                </span>
+                <label for="newpassword">
+                    <input class="new-password" type="password" placeholder=" New Password " id="newpassword" onkeyup="validateForgetPassword() , validateConfirmForgetPassword()" style="display: none;">
+                </label>
+                <label for="already account">
+                    <div class="forgot" id="forget" style="display: none;" onclick="forgetPassword()">Forgot Password</div>
+                    <div class="Already" id="already" onclick="login_color()"> Already have an account</div>
+                    <div class="Donot" id="donot" onclick="signup_color()" style="display: none;"> Don't have an account</div>
+                    <div class="update" id="update" style="display: none;"> Create New Password </div>
+                </label>
+            </div>
+            <!-- Login -->
+            <button class="btn-Login" type="submit" id="IdLogin" style="display: none;" onclick="validateLoginemail()">
+                Login
+            </button>
+            <label for="email">
+                <input class="Data" placeholder="Email " id="Login_email" style="display: none;" onkeyup="validateLoginemail()">
+            </label>
+            <label for="password">
+                <input class="password" type="password" placeholder="Password " id="Login_password" style="display: none;">
+            </label>
+            <span class="password-toggle-icon">
+                <i class="fas fa-eye-slash" id="Loginvisible" onclick="Loginvision()" style="display: none;"></i>
+            </span>
+            <!-- Change Password -->
+            <button class="Password-change" type="button" id="Password-change" style="display: none;" onclick="changePassword()">
+                Change Password
+            </button>
+            <!-- Sign up -->
+            <button class="Sign-up-middle" type="button" id="create" style="display: block;" onclick="(validateusername(), validateEmail(), validatePassword() , validateConfirmPassword()) || create_account()">
+                Create an Account
+            </button>
+    </form>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+</html>
